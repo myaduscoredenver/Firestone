@@ -90,7 +90,7 @@ const gallery = $("gallery");
 let galleryComp;
 let activePhoto = 0;
 const photos = ["cover.jpg", ...Array.from({ length: 16 }, (_, i) => String(i + 1).padStart(2, "0") + ".jpg")];
-const photoPath = (r, name) => "assets/comp-photos/MLS-" + r.id + "/" + name;
+const photoPath = (r, name) => "assets/MLS-" + r.id + "/" + name;
 
 function updatePhoto(index) {
   activePhoto = (index + photos.length) % photos.length;
