@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#142840">
+<title>11446 Ebony Street | Oak Meadows Property Review</title>
+<link rel="stylesheet" href="styles.css">
+<script src="data.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#overview">Skip to property overview</a>
+<header class="mast">
+  <div class="wrap mast-inner">
+    <a class="brand" href="#top" aria-label="Homestead Real Estate, back to top"><svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M3 20 20 6l17 14M9 18v16h22V18M16 34V23h8v11" stroke="currentColor" stroke-width="2"/></svg><span>Homestead <small>Real Estate, LLC</small></span></a>
+    <a class="button outline" href="#contact">Talk with James</a>
+  </div>
+</header>
+<div class="nav-wrap">
+  <nav class="wrap nav" aria-label="Explore this property">
+    <a href="#overview" aria-current="location">Overview</a><a href="#market">Local market</a><a href="#comps">Comparable homes</a><a href="#compare">Compare</a><a href="#value">Value lab</a><a href="#pricing">Pricing</a>
+  </nav>
+  <span class="swipe">Swipe to explore →</span>
+</div>
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="pill">James Taylor · Homestead Real Estate, LLC</span>
+        <p class="eyebrow">OAK MEADOWS · FIRESTONE, COLORADO</p>
+        <h1>11446<br>Ebony Street</h1>
+        <p class="intro">See how your home compares with recent neighborhood sales and what those sales suggest about pricing.</p>
+        <a class="button gold" href="#value">Explore your value <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/ebony-exterior.jpg" alt="Front exterior of 11446 Ebony Street, a two-story home with a covered porch and attached garage" width="1600" height="1009">
+        <figcaption>Street-view image supplied for this review</figcaption>
+      </figure>
+    </div>
+  </div>
+  <section id="overview" class="section wrap">
+    <div class="section-heading"><p class="eyebrow">THE PROPERTY</p><h2>A well-cared-for Oak Meadows home</h2><p>A 2003 two-story home with 1,643 finished square feet above grade. The original owner describes it as being in excellent condition and plans to deliver it vacant and clean for showings.</p></div>
+    <dl class="stats">
+      <div><dt>Bedrooms</dt><dd>3</dd></div><div><dt>Reported baths</dt><dd>3</dd></div><div><dt>Above-grade sq ft</dt><dd>1,643</dd></div><div><dt>Lot sq ft</dt><dd>6,600</dd></div><div><dt>Year built</dt><dd>2003</dd></div>
+    </dl>
+    <div class="callout"><strong>Property details to confirm</strong><p>Basement size and finish, bathroom breakdown, garage capacity and the scope of interior updates. The report records a 530 sq ft built-in garage.</p></div>
+  </section>
+  <section id="market" class="section tint">
+    <div class="wrap">
+      <div class="section-heading"><p class="eyebrow">OAK MEADOWS MARKET SNAPSHOT</p><h2>What buyers are seeing nearby</h2><p>Closed sales reflect what buyers paid. Active and pending listings show asking prices from the November 5, 2026 MLS export.</p></div>
+      <div class="controls">
+        <label>Closed sale period<select id="period"><option value="3">Past 3 months</option><option value="6">Past 6 months</option><option value="12" selected>Past 12 months</option><option value="24">Past 24 months</option></select></label>
+        <label>Show listings<select id="market-status"><option value="SOLD">Closed sales</option><option value="ACTIVE">Active listings</option><option value="PENDING">Pending listings</option></select></label>
+      </div>
+      <dl id="market-stats" class="stats" aria-live="polite"></dl>
+      <div class="table-scroll"><table><caption class="sr-only">Oak Meadows listings</caption><thead><tr><th scope="col">Address</th><th scope="col">Status</th><th scope="col">Price</th><th scope="col">Close date</th><th scope="col">Above-grade sq ft</th><th scope="col">Days on market</th></tr></thead><tbody id="market-rows"></tbody></table></div>
+      <button id="market-more" class="button outline" type="button" hidden>Show all matching listings</button>
+      <p class="fine">Subdivision labels follow the MLS export. 6188 Twilight Ave is excluded because two records disagree on the closing price.</p>
+    </div>
+  </section>
+  <section id="comps" class="section wrap">
+    <div class="section-heading"><p class="eyebrow">COMPARABLE HOMES</p><h2>Look inside the neighborhood comps</h2><p>Browse 13 selected listings, including same-street sales and nearby competition. Open a gallery to compare layouts and finishes.</p></div>
+    <div class="controls">
+      <label>Filter by status<select id="comp-status"><option value="ALL">All selected homes</option><option value="SOLD">Closed sales</option><option value="ACTIVE">Active listings</option><option value="PENDING">Pending listings</option></select></label>
+      <label>Sort by<select id="comp-sort"><option value="relevance">Featured first</option><option value="high">Price high to low</option><option value="low">Price low to high</option><option value="recent">Most recently sold</option></select></label>
+    </div>
+    <div id="comp-grid" class="card-grid"></div>
+  </section>
+  <section id="compare" class="section tint">
+    <div class="wrap">
+      <div class="section-heading"><p class="eyebrow">SIDE BY SIDE</p><h2>Compare the details that affect value</h2><p>Choose two nearby homes to see how their above-grade area, basement finish and other features compare with 11446 Ebony.</p></div>
+      <div class="controls"><label>First comparison<select id="compare-a"></select></label><label>Second comparison<select id="compare-b"></select></label></div>
+      <div class="table-scroll"><table id="compare-table"><caption class="sr-only">Property comparison</caption></table></div>
+    </div>
+  </section>
+  <section id="value" class="section wrap">
+    <div class="section-heading"><p class="eyebrow">VALUE LABORATORY</p><h2>How much might the basement change?</h2><p>Change the basement assumption to see how the local model responds. The subject’s basement configuration is still to be confirmed.</p></div>
+    <div class="value-grid">
+      <fieldset class="panel"><legend>Basement scenario</legend>
+        <label class="choice"><input type="radio" name="basement" value="none"><span><strong>No basement</strong><small>1,643 finished sq ft total</small></span></label>
+        <label class="choice"><input type="radio" name="basement" value="unfinished" checked><span><strong>700 sq ft unfinished</strong><small>1,643 finished sq ft total</small></span></label>
+        <label class="choice"><input type="radio" name="basement" value="finished"><span><strong>700 sq ft finished</strong><small>2,343 finished sq ft total</small></span></label>
+      </fieldset>
+      <div class="result" aria-live="polite"><p class="eyebrow">ILLUSTRATIVE MODEL ESTIMATE</p><output id="estimate">$490,000</output><p id="estimate-note">Assumes about 700 sq ft of unfinished basement.</p><p class="fine">Model scenario only. Pricing will depend on verified features and comparable sales.</p></div>
+    </div>
+    <details class="method"><summary>How these estimates were calculated</summary><p>The local model uses 69 nearby two-story resales since 2022 and accounts for above-grade area, finished and unfinished lower-level area, lot size, age, garage, beds, baths, neighborhood and sale date. It assumes two garage spaces for the subject. The model has no verified condition or remodeling input. In a small test on five comparable 2026 Oak Meadows sales, the average absolute error was about $16,000. Actual errors varied. This is a pricing discussion tool.</p></details>
+  </section>
+  <section id="pricing" class="section tint">
+    <div class="wrap">
+      <div class="section-heading"><p class="eyebrow">PRICING STRATEGY</p><h2>See what different sale prices could mean</h2><p>Enter your own assumptions to estimate seller proceeds. The sample sale price is for discussion. We can set a list-price strategy after reviewing the home and current competition.</p></div>
+      <div class="value-grid">
+        <div class="panel calc">
+          <label>Illustrative sale price ($)<input id="sale-price" type="number" min="0" step="1000" value="490000"></label>
+          <label>Total compensation you choose (%)<input id="commission" type="number" min="0" max="100" step="0.1" value="0"></label>
+          <label>Other seller costs and credits ($)<input id="costs" type="number" min="0" step="100" value="0"></label>
+          <label>Loan payoff ($)<input id="payoff" type="number" min="0" step="100" value="0"></label>
+        </div>
+        <div class="result" aria-live="polite"><p class="eyebrow">ESTIMATED PROCEEDS</p><output id="proceeds">$490,000</output><p>After the compensation, costs, credits and payoff you enter.</p><p class="fine">Compensation is negotiable. The calculator starts with zero deductions until you enter your own figures.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="section wrap contact">
+    <p class="eyebrow">YOUR NEXT STEP</p><h2>Let’s talk about your sale</h2><p>We can walk through the home, verify the features that matter for pricing and look at the listings buyers will compare it with.</p>
+    <strong>James Taylor</strong><p>Homestead Real Estate, LLC</p>
+    <div class="contact-actions"><a class="button primary" href="tel:+17203406743">Call James</a><a class="button outline" href="mailto:JamesTaylorHomeSales@gmail.com">Email James</a></div>
+  </section>
+</main>
+<footer><div class="wrap"><strong>Homestead Real Estate, LLC</strong><p>Prepared by James Taylor · November 5, 2026</p><p>MLS data and photos from supplied listing reports. Property characteristics from the property report and owner’s description.</p></div></footer>
+<dialog id="gallery" aria-labelledby="gallery-title">
+  <div class="gallery-head"><h2 id="gallery-title"></h2><button id="gallery-close" type="button" class="button outline" aria-label="Close photo gallery">Close</button></div>
+  <div class="gallery-stage"><button id="prev-photo" type="button" aria-label="Previous photo">‹</button><img id="gallery-image" alt=""><button id="next-photo" type="button" aria-label="Next photo">›</button></div>
+  <p id="gallery-count" aria-live="polite"></p><div id="thumbnails" class="thumbnails" aria-label="Choose a photo"></div>
+</dialog>
+</body>
+</html>
