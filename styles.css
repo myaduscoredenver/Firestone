@@ -71,7 +71,16 @@ tbody tr:nth-child(even){background:#f7f9fc}
 .card{overflow:hidden;border:1px solid var(--line);border-radius:7px;background:white;box-shadow:0 4px 12px #19334e0b}
 .cover-button{display:block;border:0;background:#dce8f2;width:100%;padding:0;position:relative}
 .cover-button img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
-.cover-button span{position:absolute;right:10px;bottom:10px;background:var(--navy);color:white;padding:5px 9px;border-radius:4px;font-size:.75rem}
+.photo-label{position:absolute;right:10px;bottom:10px;background:var(--navy);color:white;padding:5px 9px;border-radius:4px;font-size:.75rem}
+.competition-ribbon{
+  position:absolute;top:28px;right:-51px;width:210px;min-height:37px;
+  display:grid;place-items:center;padding:4px 47px;
+  background:var(--gold);color:var(--navy);transform:rotate(36deg);
+  box-shadow:0 2px 5px #14284055;font-size:.69rem;font-weight:800;line-height:1.15;
+  pointer-events:none;
+}
+.closing-date{display:block;color:var(--muted);font-size:.82rem}
+.listing-credit{margin-top:11px;padding-top:9px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem}
 .card-body{padding:15px 16px 18px}
 .card h3{margin:6px 0}
 .card .price{font-weight:750;font-size:1.16rem}

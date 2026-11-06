@@ -4,7 +4,7 @@ const { comps, market } = window.PROPERTY_DATA;
 const $ = (id) => document.getElementById(id);
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const num = new Intl.NumberFormat("en-US");
-const statuses = { SOLD: "Closed", ACTIVE: "Active", PENDING: "Pending" };
+const statuses = { SOLD: "Closed", ACTIVE: "Active", PENDING: "Pending", BACKUP: "Under contract · accepting backups" };
 const fmt = (v) => v == null ? "—" : num.format(v);
 const price = (v) => v == null ? "—" : usd.format(v);
 const date = (v) => v ? new Date(v + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
@@ -45,7 +45,7 @@ function renderMarket() {
   const closed = status === "SOLD";
   const cutoff = new Date(Date.UTC(2026, 10 - Number($("period").value), 5)).toISOString().slice(0, 10);
   $("period").disabled = !closed;
-  const listings = market.filter((r) => r.status === status && (!closed || r.date >= cutoff));
+  const listings = market.filter((r) => (r.status === status || (status === "PENDING" && r.status === "BACKUP")) && (!closed || r.date >= cutoff));
   listings.sort((a, b) => closed ? b.date.localeCompare(a.date) : (a.price ?? Infinity) - (b.price ?? Infinity));
   const stats = [
     [closed ? "Closed sales" : statuses[status] + " listings", fmt(listings.length)],
@@ -135,7 +135,7 @@ gallery.addEventListener("keydown", (event) => {
 function renderComps() {
   const status = $("comp-status").value;
   const sort = $("comp-sort").value;
-  const selected = ordered.filter((r) => status === "ALL" || status === r.status);
+  const selected = ordered.filter((r) => status === "ALL" || status === r.status || (status === "PENDING" && r.status === "BACKUP"));
   if (sort === "high") selected.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
   if (sort === "low") selected.sort((a, b) => (a.price ?? Infinity) - (b.price ?? Infinity));
   if (sort === "recent") selected.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
@@ -148,13 +148,22 @@ function renderComps() {
     img.src = photoPath(r, "cover.jpg");
     img.alt = r.address;
     img.loading = "lazy";
-    button.append(img, element("span", "View photos"));
+    button.append(img, element("span", "View photos", "photo-label"));
+    if (r.status === "ACTIVE") {
+      button.append(element("span", "Let's go check out the competition!", "competition-ribbon"));
+    }
     button.addEventListener("click", () => openGallery(r));
     const body = element("div", null, "card-body");
     body.append(element("span", statuses[r.status], "badge"), element("h3", r.address),
-      element("p", price(r.price) + (r.status === "SOLD" ? " closed" : " asking"), "price"),
-      element("p", fmt(r.beds) + " beds · " + fmt(r.baths) + " baths · " + (r.ag == null ? "Above-grade area to verify" : fmt(r.ag) + " sq ft above grade"), "fine"),
-      element("p", r.note, "fine"));
+      element("p", price(r.price) + (r.status === "SOLD" ? " closed" : " asking"), "price"));
+    if (r.status === "SOLD" && r.date) {
+      const closing = element("time", "Closed " + date(r.date), "closing-date");
+      closing.dateTime = r.date;
+      body.append(closing);
+    }
+    body.append(element("p", fmt(r.beds) + " beds · " + fmt(r.baths) + " baths · " + (r.ag == null ? "Above-grade area to verify" : fmt(r.ag) + " sq ft above grade"), "fine"),
+      element("p", r.note, "fine"),
+      element("p", "Listed by " + r.listingAgent + " · " + r.listingOffice, "listing-credit"));
     card.append(button, body);
     return card;
   }));
